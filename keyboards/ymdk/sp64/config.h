@@ -43,3 +43,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_LIMIT_VAL 250 /* The maximum brightness level */
 #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 #define RGBLIGHT_ANIMATIONS
+#define GRAVE_ESC_ALT_OVERRIDE
+#define GRAVE_ESC_CTRL_OVERRIDE
+#define GRAVE_ESC_GUI_OVERRIDE

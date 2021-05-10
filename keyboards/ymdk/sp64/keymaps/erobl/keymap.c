@@ -2,8 +2,8 @@
 
 enum layer_names {
     BASE, // default layer
-    _FN,  // function layer
-    _FX   // media keys
+    _RAISE,  // function layer
+    _LOWER   // right space
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -26,9 +26,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,     KC_R,    KC_T,               KC_Y,     KC_U, KC_I,    KC_O,    KC_P,      KC_LBRACKET, KC_RBRACKET, KC_BSLS,
   KC_CAPS, KC_A,    KC_S,    KC_D,     KC_F,    KC_G,               KC_H,     KC_J, KC_K,    KC_L,    KC_SCOLON, KC_QUOTE,                 KC_ENTER,
   KC_LSFT, KC_Z,    KC_X,    KC_C,     KC_V,    KC_B,               KC_N,     KC_M, KC_COMM, KC_DOT,  KC_SLSH,   KC_RSFT,     KC_UP,       KC_DEL,
-  KC_LCTL, KC_LGUI, KC_LALT, KC_SPACE,      MO(_FN),     KC_SPACE,                  KC_RALT, KC_RCTL,            KC_LEFT,     KC_DOWN,     KC_RIGHT
+  KC_LCTL, KC_LGUI, KC_LALT, KC_SPACE,      MO(_RAISE),     KC_SPACE,                  KC_RALT, KC_RCTL,            KC_LEFT,     KC_DOWN,     KC_RIGHT
   ),
-/* Function
+/* Raise
  *
  * ┌-----┬-----┬-----┬-----┬-----┬-----┬-----┐    ┌-----┬-----┬-----┬-----┬-----┬-----┬----------┐
  * │ `   │ F1  │  F2 │ F3  │ F4  │ F5  │ F6  │    │ F7  │ F8  │ F9  │ F10 │ F11 │ F12 │          │
@@ -42,14 +42,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │      │     │      │             │     │    │               │       │      │     │     │     │
  * └------┴-----┴------┴-------------┴-----┘    └---------------┴-------┴------┴-----┴-----┴-----┘
  */
-[_FN] = LAYOUT(
+[_RAISE] = LAYOUT(
   KC_GRV, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,          KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,
   LCTL(KC_RCTL), _______, _______, _______, _______, _______,        _______, _______, _______, _______, RGB_TOG, RGB_RMOD, RGB_MOD, _______,
   _______, _______, _______, _______, _______, _______,        _______, _______, _______, _______, _______, _______,          _______,
   _______, _______, _______, _______, _______, _______,        _______, _______, RGB_VAD, RGB_VAI, _______, _______, KC_PGUP, _______,
   _______, _______, _______, _______,          KC_TRNS,        _______,          _______, _______,          KC_HOME, KC_PGDN, KC_END 
   ),
-/* Media
+/* Down
  *
  * ┌-----┬-----┬-----┬-----┬-----┬-----┬-----┐    ┌-----┬-----┬-----┬-----┬-----┬-----┬----------┐
  * │     │     │     │     │     │     │     │    │     │     │     │     │     │     │          │
@@ -63,9 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │      │     │      │             │     │    │               │       │      │     │     │     │
  * └------┴-----┴------┴-------------┴-----┘    └---------------┴-------┴------┴-----┴-----┴-----┘
  */
-[_FX] = LAYOUT(
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+[_LOWER] = LAYOUT(
+  _______, RGUI(KC_1), RGUI(KC_2), RGUI(KC_3), RGUI(KC_4), RGUI(KC_5), RGUI(KC_6), RGUI(KC_7), RGUI(KC_8), RGUI(KC_9), RGUI(KC_0), _______, _______, _______,
+  _______, LCTL(KC_F1), LCTL(KC_F2), LCTL(KC_F3), LCTL(KC_F4), LCTL(KC_F5), LCTL(KC_F6), LCTL(KC_F7), LCTL(KC_F8), LCTL(KC_F9), LCTL(KC_F10), _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______,          _______, _______,          _______, _______,          _______, _______, _______
